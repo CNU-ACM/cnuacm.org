@@ -1,6 +1,6 @@
 module.exports = {
-  template: require('./hello.html'),
+  template: require('./index.html'),
   controller: function () {
-    this.hello = 'Hello World!';
+    this.logo = "../img/logo.png";
   }
 };

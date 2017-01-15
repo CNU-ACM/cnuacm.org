@@ -1,7 +1,8 @@
 var angular = require('angular');
 
-var hello = require('./app/index');
+var idx = require('./app/index');
 require('angular-ui-router');
+
 var routesConfig = require('./routes');
 
 require('./index.scss');
@@ -12,4 +13,4 @@ module.exports = app;
 angular
   .module(app, ['ui.router'])
   .config(routesConfig)
-  .component('app', hello);
+  .component('app', idx);
