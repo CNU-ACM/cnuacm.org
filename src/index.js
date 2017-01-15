@@ -1,6 +1,6 @@
 var angular = require('angular');
 
-var hello = require('./app/hello');
+var hello = require('./app/index');
 require('angular-ui-router');
 var routesConfig = require('./routes');
 
