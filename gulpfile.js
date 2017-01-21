@@ -4,9 +4,9 @@ const browserSync = require('browser-sync');
 
 const conf = require('./conf/gulp.conf');
 
-const jshint = require('gulp-jshint');
-const jscs = require('gulp-jscs');
-const del = require('del');
+//const jshint = require('gulp-jshint');
+//const jscs = require('gulp-jscs');
+//const del = require('del');
 
 // Load some files into the registry
 const hub = new HubRegistry([conf.path.tasks('*.js')]);
