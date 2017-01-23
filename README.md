@@ -38,3 +38,6 @@ or the Gulp task:
 ```
 gulp test
 ```
+
+## Folder Structure
+Follows the Scotch structure discussed in this article: https://scotch.io/tutorials/angularjs-best-practices-directory-structure
