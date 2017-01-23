@@ -4,7 +4,7 @@ var router = express.Router();
 var path = __dirname + '/views/';
 
 router.use(function (req,res,next) {
-  console.log("/" + req.method);
+  //console.log("/" + req.method); // --> Displays the type of request.
   next();
 });
 
@@ -18,6 +18,10 @@ router.get("/about",function(req,res){
 
 router.get("/contact",function(req,res){
   res.sendFile(path + "contact.html");
+});
+
+router.get("/news", function(req,res){
+  res.sendFile(path + "news.html");
 });
 
 app.use("/",router);
