@@ -22,6 +22,9 @@ module.exports = function (config) {
     preprocessors: {
       [conf.path.src('**/*.html')]: [
         'ng-html2js'
+      ],
+      [conf.path.src('app/**/*.js')]: [
+        'coverage'
       ]
     },
     ngHtml2JsPreprocessor: {
@@ -41,6 +44,11 @@ module.exports = function (config) {
       require('karma-phantomjs-shim'),
       require('karma-ng-html2js-preprocessor'),
       require('karma-angular-filesort')
+    ],
+    reporters: [
+      'coverage',
+      'dots',
+      'junit'
     ]
   };
 
