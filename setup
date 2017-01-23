@@ -1,3 +1,0 @@
-sudo npm install
-sudo npm install -g bower
-bower install
