@@ -1,4 +1,4 @@
-# cnuacm.org
+# cnuacm.org [![bitHound Overall Score](https://www.bithound.io/github/CNU-ACM/cnuacm.org/badges/score.svg)](https://www.bithound.io/github/CNU-ACM/cnuacm.org)
 This is the website for the ACM at CNU Student Chapter.
 
 ## Requirements
