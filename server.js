@@ -9,40 +9,59 @@ router.use(function (req,res,next) {
 });
 
 router.get("/",function(req,res){
-  res.sendFile(path + "index.html");
+	res.sendFile(path + "index.html");
 });
 
+// --> serving stylesheets <--
 router.get("/bootstrap.css",function(req,res){
-  res.sendFile(__dirname + "/styles/bootstrap.css");
+	res.sendFile(__dirname + "/styles/bootstrap.css");
 });
 
 router.get("/main.css",function(req,res){
-  res.sendFile(__dirname + "/styles/main.css");
+	res.sendFile(__dirname + "/styles/main.css");
 });
 
+// --> serving images to be used <--
 router.get("/logo",function(req,res){
 	res.sendFile(__dirname + "/img/logo.png");
 });
 
+router.get("/bluestreak",function(req,res){
+	res.sendFile(__dirname + "/img/bluestreak.jpg");
+});
+
+router.get("/lan_one",function(req,res){
+	res.sendFile(__dirname + "/img/lan(1).jpg");
+});
+
+router.get("lan_two",function(req,res){
+	res.sendFile(__dirname + "/img/lan(2).jpg");
+});
+
+router.get("/silverstreak",function(req,res){
+	res.sendFile(__dirname + "/img/silverstreak.jpg");
+});
+
+// --> Serving the rest of the files. <--
 router.get("/about",function(req,res){
-  res.sendFile(path + "about.html");
+	res.sendFile(path + "about.html");
 });
 
 router.get("/contact",function(req,res){
-  res.sendFile(path + "contact.html");
+	res.sendFile(path + "contact.html");
 });
 
 router.get("/news", function(req,res){
-  res.sendFile(path + "news.html");
+	res.sendFile(path + "news.html");
 });
 
 app.use("/",router);
 
 app.use("*",function(req,res){
-  res.sendFile(path + "404.html");
+	res.sendFile(path + "404.html");
 });
 
 app.listen(3000,function(){
-  console.log("Live at Port 3000");
+	console.log("Live at Port 3000");
 });
 
