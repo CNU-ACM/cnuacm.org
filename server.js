@@ -21,6 +21,10 @@ router.get("/main.css",function(req,res){
 	res.sendFile(__dirname + "/styles/main.css");
 });
 
+router.get("/footer.css", function(req,res){
+	res.sendFile(__dirname + "/styles/footer.css");
+});
+
 // --> serving images to be used <--
 router.get("/logo",function(req,res){
 	res.sendFile(__dirname + "/img/logo.png");
@@ -55,6 +59,7 @@ router.get("/news", function(req,res){
 	res.sendFile(path + "news.html");
 });
 
+// --> Use routes defined.
 app.use("/",router);
 
 app.use("*",function(req,res){
