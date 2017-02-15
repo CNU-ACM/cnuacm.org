@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
+var PostProvider = require("./postprovider-memory").PostProvider
 
 router.use(function (req,res,next) {
   //console.log(req); // --> DEBUGGING Purposes
@@ -60,10 +61,19 @@ router.get("/news", function(req,res){
 });
 
 // --> Use routes defined.
+
 app.use("/",router);
 
 app.use("*",function(req,res){
 	res.sendFile(path + "404.html");
+});
+
+var postProvider = new PostProvider();
+
+app.get( '/', function(req, res) {
+	postProvider.findAll(function(error,docs){
+		res.send(docs);
+	})
 });
 
 app.listen(3000,function(){
