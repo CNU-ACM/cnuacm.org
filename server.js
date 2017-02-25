@@ -2,7 +2,6 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
-var PostProvider = require("./postprovider-memory").PostProvider
 
 router.use(function (req,res,next) {
   //console.log(req); // --> DEBUGGING Purposes
@@ -23,6 +22,10 @@ router.get("/main.css",function(req,res){
 });
 
 router.get("/footer.css", function(req,res){
+	res.sendFile(__dirname + "/styles/footer.css");
+});
+
+router.get("/member.ui.css",function(req,res){
 	res.sendFile(__dirname + "/styles/footer.css");
 });
 
@@ -47,6 +50,10 @@ router.get("/silverstreak",function(req,res){
 	res.sendFile(__dirname + "/img/silverstreak.jpg");
 });
 
+router.get("/helpingout",function(req,res){
+	res.sendFile(__dirname + "/img/helpingout.jpg");
+});
+
 // --> Serving the rest of the files. <--
 router.get("/about",function(req,res){
 	res.sendFile(path + "about.html");
@@ -68,13 +75,6 @@ app.use("*",function(req,res){
 	res.sendFile(path + "404.html");
 });
 
-var postProvider = new PostProvider();
-
-app.get( '/', function(req, res) {
-	postProvider.findAll(function(error,docs){
-		res.send(docs);
-	})
-});
 
 app.listen(3000,function(){
 	console.log("Live at Port 3000");
