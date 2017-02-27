@@ -26,7 +26,7 @@ PostProvider.prototype.save = function(posts, callback) {
 	if( typeof(posts.length) == "undefined")
 		posts = [posts];
 
-	for( var i =0; i < articles.length; i++) {
+	for( var i =0; i < posts.length; i++) {
 		post = posts[i]
 		post._id = postCounter++;
 		post.created_at = new Date();
@@ -38,9 +38,9 @@ PostProvider.prototype.save = function(posts, callback) {
 		for(var j = 0; j < post.comments.length; j++) {
 			post.comments[j].created_at = new Date();
 		}
-		this.dummyData[this.dummyData.length]= article;
+		this.dummyData[this.dummyData.length]= post;
 	}
-	callback(null, articles);
+	callback(null, posts);
 };
 
 	new PostProvider().save([
