@@ -2,6 +2,30 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
+var mangos = require('mongodb').MongoClient
+
+// Setting up database
+
+var db;
+mangos.connect("mongodb://localhost:27017/NEWS", function(err,database) {
+        if (err) return console.log(err);
+        db = database;
+
+	app.listen(3000,function(){
+        	console.log("Live at Port 3000");
+	});
+});
+
+app.post('/news', function(req,res) {
+	db.collection('NEWS').save(req.body, function(err,result) {
+		if (err) return console.log(err);
+
+		console.log('saved to database');
+		res.redirect('/news');
+	});
+});
+
+app.set('view engine', 'ejs');
 
 router.use(function (req,res,next) {
   //console.log(req); // --> DEBUGGING Purposes
@@ -64,7 +88,15 @@ router.get("/contact",function(req,res){
 });
 
 router.get("/news", function(req,res){
-	res.sendFile(path + "news.html");
+	console.log("Accessing News!")
+	db.collection('NEWS').find().toArray(function(err, result) {
+		if (err) return console.log(err);
+
+		res.render('news.ejs', {NEWS: result})
+	});
+
+	//res.sendFile(path + "news.html");
+	var cursor = db.collection('NEWS').find();
 });
 
 // --> Use routes defined.
@@ -73,10 +105,5 @@ app.use("/",router);
 
 app.use("*",function(req,res){
 	res.sendFile(path + "404.html");
-});
-
-
-app.listen(3000,function(){
-	console.log("Live at Port 3000");
 });
 
