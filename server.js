@@ -88,11 +88,12 @@ router.get("/contact",function(req,res){
 });
 
 router.get("/news", function(req,res){
-	console.log("Accessing News!")
-	db.collection('NEWS').find().toArray(function(err, result) {
-		if (err) return console.log(err);
+    //console.log("Accessing News!");
+	db.collection('posts').find().toArray(function(err, result) {
+	    if (err) return console.log(err);
 
-		res.render('news.ejs', {NEWS: result})
+	    res.render('news.ejs', {posts: result});
+	    console.log(result);
 	});
 
 	//res.sendFile(path + "news.html");
