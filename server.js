@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
-var mangos = require('mongodb').MongoClient
+var mangos = require('mongodb').MongoClient;
 
 // Setting up database
 
