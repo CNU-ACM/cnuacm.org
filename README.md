@@ -1,11 +1,11 @@
-#ACM@CNU
-##Association for Computing Machinery Website at Christopher Newport University.
+# ACM@CNU
+## Association for Computing Machinery Website at Christopher Newport University.
 
-###Deployment
+### Deployment
 	To run the server, run `npm start`
-###Developers
+### Developers
 	To install necessary dependencies, run `npm install`
-###Structure
+### Structure
 ```
 	styles -- contains all of the stylesheets for the website.
 
