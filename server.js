@@ -7,7 +7,7 @@ var mangos = require('mongodb').MongoClient
 // Setting up database
 
 var db;
-mangos.connect("mongodb://localhost:27017/NEWS", function(err,database) {
+mangos.connect("mongodb://localhost:27017/POSTS", function(err,database) {
         if (err) return console.log(err);
         db = database;
 
@@ -78,6 +78,14 @@ router.get("/helpingout",function(req,res){
 	res.sendFile(__dirname + "/img/helpingout.jpg");
 });
 
+router.get("/hackathon.jpg", function(req,res) {
+	res.sendFile(__dirname + "/img/news_images/hackathon.jpg");
+});
+
+router.get("/lanparty.jpg", function(req,res) {
+	res.sendFile(__dirname + "/img/news_images/lanparty.jpg");
+});
+
 // --> Serving the rest of the files. <--
 router.get("/about",function(req,res){
 	res.sendFile(path + "about.html");
@@ -93,7 +101,7 @@ router.get("/news", function(req,res){
 	    if (err) return console.log(err);
 
 	    res.render('news.ejs', {posts: result});
-	    console.log(result);
+	    //console.log(result);
 	});
 
 	//res.sendFile(path + "news.html");
