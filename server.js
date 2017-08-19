@@ -62,6 +62,10 @@ router.get("/bluestreak",function(req,res){
 	res.sendFile(__dirname + "/img/bluestreak.jpg");
 });
 
+router.get("/sky",function(req,res){
+	res.sendFile(__dirname + "/img/sky.jpg");
+});
+
 router.get("/lan_one",function(req,res){
 	res.sendFile(__dirname + "/img/lan(1).jpg");
 });
