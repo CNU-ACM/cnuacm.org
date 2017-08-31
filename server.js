@@ -87,6 +87,10 @@ router.get("/about",function(req,res){
 	res.sendFile(path + "about.html");
 });
 
+router.get("/donate", function(req, res) {
+	res.sendFile(path + "donate.html");
+});
+
 router.get("/contact",function(req,res){
 	res.sendFile(path + "contact.html");
 });
